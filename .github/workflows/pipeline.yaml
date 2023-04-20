@@ -34,7 +34,10 @@ jobs:
       run: cat css/main.css
     
     - name: show contents of a file
-      run: cat css/1/1.css
+      run: cat css/1/index-copy.html
+
+    - name: List files in directory
+      run: tree .
       
     - name: Create ZIP archive
       run: |
