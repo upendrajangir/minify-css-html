@@ -25,7 +25,7 @@ jobs:
         npx html-minifier --input-dir ./ --output-dir ./ --file-ext html --collapse-whitespace --remove-comments
     
     - name: List files in directory
-      run: ls
+      run: tree .
       
     - name: Show contents of a file
       run: cat index.html
