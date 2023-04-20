@@ -3,7 +3,7 @@ name: Minify CSS
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   minify-css:
