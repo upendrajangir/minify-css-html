@@ -26,7 +26,6 @@ jobs:
       
     - name: Create ZIP archive
       run: |
-        cd dist
         zip -r ../minified.zip *
 
     - name: Upload ZIP archive
