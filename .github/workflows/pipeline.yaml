@@ -23,6 +23,18 @@ jobs:
     - name: Minify HTML files
       run: |
         npx html-minifier --input-dir ./ --output-dir ./ --file-ext html --collapse-whitespace --remove-comments
+    
+    - name: List files in directory
+      run: ls
+      
+    - name: Show contents of a file
+      run: cat index.html
+
+    - name: show contents of a file
+      run: cat css/main.css
+    
+    - name: show contents of a file
+      run: cat css/1/1.css
       
     - name: Create ZIP archive
       run: |
