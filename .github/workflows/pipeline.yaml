@@ -1,0 +1,38 @@
+name: Minify CSS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  minify-css:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Install dependencies
+      run: npm install html-minifier cleancss
+      
+    - name: Minify CSS files
+      run: |
+        find css -type f -name '*.css' -exec npx cleancss --output {} {} \;
+
+    - name: Minify HTML files
+      run: |
+        npx html-minifier --input-dir ./ --output-dir ./ --file-ext html --collapse-whitespace --remove-comments
+      
+    - name: Create ZIP archive
+      run: |
+        cd dist
+        zip -r ../minified.zip *
+
+    - name: Upload ZIP archive
+      uses: actions/upload-artifact@v2
+      with:
+        name: minified
+        path: minified.zip
+      
+      
